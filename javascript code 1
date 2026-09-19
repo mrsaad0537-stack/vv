@@ -1,0 +1,158 @@
+// <----- Chapters 21-25: String Methods -------->
+
+// <------ Question 1 ------->
+let firstName1 = prompt("Enter your first name:");
+let lastName1 = prompt("Enter your last name:");
+let fullName1 = firstName1 + " " + lastName1;
+alert("Hello " + fullName1 + "!");
+
+// <------ Question 2 ------->
+let mobileModel = prompt("Enter your favorite mobile phone model:");
+document.write("My favorite mobile phone is: " + mobileModel + "<br>");
+document.write("Length of string: " + mobileModel.length + "<br><br>");
+
+// <------ Question 3 ------->
+let word3 = "Pakistani";
+document.write("String: " + word3 + "<br>");
+document.write("Index of 'n': " + word3.indexOf("n") + "<br><br>");
+
+// <------ Question 4 ------->
+let text4 = "Hello World";
+document.write("String: " + text4 + "<br>");
+document.write("Last index of 'l': " + text4.lastIndexOf("l") + "<br><br>");
+
+// <------ Question 5 ------->
+let word5 = "Pakistani";
+document.write("String: " + word5 + "<br>");
+document.write("Character at 3rd index: " + word5.charAt(3) + "<br><br>");
+
+// <------ Question 6 ------->
+let firstName6 = prompt("Enter your first name:");
+let lastName6 = prompt("Enter your last name:");
+let fullName6 = firstName6.concat(" ", lastName6);
+alert("Hello " + fullName6 + "!");
+
+// <------ Question 7 ------->
+let city = "Hyderabad";
+let newCity = city.replace("Hyder", "Islam");
+document.write("City: " + city + "<br>");
+document.write("After replacement: " + newCity + "<br><br>");
+
+// <------ Question 8 ------->
+let message = "Ali and Sami are best friends. They play cricket and football together.";
+let newMessage = message.replace(/and/g, "&");
+document.write("Original message: " + message + "<br>");
+document.write("After replacement: " + newMessage + "<br><br>");
+
+// <------ Question 9 ------->
+let strNum = "472";
+let convertedNum = Number(strNum);
+document.write("Value: " + strNum + "<br>Type: " + typeof strNum + "<br>");
+document.write("Value: " + convertedNum + "<br>Type: " + typeof convertedNum + "<br><br>");
+
+// <------ Question 10 ------->
+let userInput10 = prompt("Enter any text:");
+document.write("Original Input: " + userInput10 + "<br>");
+document.write("In Capital Letters: " + userInput10.toUpperCase() + "<br><br>");
+
+// <------ Question 11 ------->
+let userInput11 = prompt("Enter any text:");
+let words11 = userInput11.toLowerCase().split(" ");
+for (let i = 0; i < words11.length; i++) {
+  words11[i] = words11[i].charAt(0).toUpperCase() + words11[i].slice(1);
+}
+document.write("Original Input: " + userInput11 + "<br>");
+document.write("Title Case: " + words11.join(" ") + "<br><br>");
+
+// <------ Question 12 ------->
+let num12 = 35.36;
+let str12 = num12.toString().replace(".", "");
+document.write("Original Number: " + num12 + "<br>");
+document.write("After removing dot: " + str12 + "<br><br>");
+
+// <------ Question 13 ------->
+let username = prompt("Enter your username:");
+function isValidUsername(name) {
+  for (let i = 0; i < name.length; i++) {
+    let code = name.charCodeAt(i);
+    if (code === 33 || code === 44 || code === 46 || code === 64) {
+      return false;
+    }
+  }
+  return true;
+}
+
+if (isValidUsername(username)) {
+  alert("Username is valid: " + username);
+} else {
+  alert("Please enter a valid username without [@ , . !]");
+}
+
+// <------ Question 14 ------->
+let items = ["cake", "apple pie", "cookie", "chips", "patties"];
+let userOrder = prompt("Welcome! What do you want to order?");
+let searchItem = userOrder ? userOrder.toLowerCase() : "";
+let itemIndex = items.indexOf(searchItem);
+
+if (itemIndex !== -1) {
+  alert(userOrder + " is available at index " + itemIndex + " in our bakery.");
+} else {
+  alert(userOrder + " is not available in our bakery.");
+}
+
+// <------ Question 15 ------->
+let password = prompt("Enter your password:");
+function isValidPassword(pwd) {
+  if (!pwd || pwd.length < 6) return false;
+
+  let firstCharCode = pwd.charCodeAt(0);
+  if (firstCharCode >= 48 && firstCharCode <= 57) return false;
+
+  let hasAlphabet = false;
+  let hasNumber = false;
+
+  for (let i = 0; i < pwd.length; i++) {
+    let code = pwd.charCodeAt(i);
+    if ((code >= 65 && code <= 90) || (code >= 97 && code <= 122)) {
+      hasAlphabet = true;
+    } else if (code >= 48 && code <= 57) {
+      hasNumber = true;
+    }
+  }
+
+  return hasAlphabet && hasNumber;
+} // Fixed missing brace here
+
+if (isValidPassword(password)) {
+  alert("Password is valid!");
+} else {
+  alert("Invalid password! Please enter a valid password.\nRequirements:\n1. At least 6 characters\n2. Cannot start with a number\n3. Must contain both letters and numbers");
+}
+
+// <------ Question 16 ------->
+let university = "University of Karachi";
+let charArray = university.split("");
+for (let i = 0; i < charArray.length; i++) {
+  document.write(charArray[i] + "<br>");
+}
+document.write("<br>");
+
+// <------ Question 17 ------->
+let userInput17 = prompt("Enter any text:");
+let lastChar = userInput17.charAt(userInput17.length - 1);
+document.write("User input: " + userInput17 + "<br>");
+document.write("Last character: " + lastChar + "<br><br>");
+
+// <------ Question 18 ------->
+let sampleText = "The quick brown fox jumps over the lazy dog";
+let words18 = sampleText.toLowerCase().split(" ");
+let count = 0;
+
+for (let i = 0; i < words18.length; i++) {
+  if (words18[i] === "the") {
+    count++;
+  }
+}
+
+document.write("Text: " + sampleText + "<br>");
+document.write("Number of occurrences of 'the': " + count);
